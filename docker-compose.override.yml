@@ -1,13 +1,9 @@
 version: '2'
 services:
   mariadb:
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - mariadb_data_development:/bitnami/mariadb
   opencart:
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - opencart_data_development:/bitnami/opencart
       - opencart_storage_data_development:/bitnami/opencart_storage
