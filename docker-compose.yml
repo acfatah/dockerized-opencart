@@ -17,9 +17,14 @@ services:
     environment:
       - OPENCART_HOST=${OPENCART_HOST}
       - OPENCART_DATABASE_PASSWORD=${OPENCART_DATABASE_PASSWORD}
+      - OPENCART_ENABLE_HTTPS=${OPENCART_ENABLE_HTTPS:-no}
     volumes:
       - opencart_data:/bitnami/opencart
       - opencart_storage_data:/bitnami/opencart_storage
+      ## https configurations
+      # - ./opencart-https-vhosts.conf:/opt/bitnami/apache2/conf/vhosts/opencart-https-vhosts.conf:ro
+      ## example using exiting letsencrypt certs
+      # - /etc/letsencrypt:/etc/letsencrypt
     depends_on:
       - mariadb
 volumes:
